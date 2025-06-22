@@ -5,15 +5,13 @@ import Head from "next/head";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 export const metadata = {
-  title:
-    "Sirb | سيرب - أفضل منصة أفلام ومسلسلات عربية وعالمية | Sirb Movies & TV Shows | منصة سيرب للأفلام والمسلسلات",
+  title: "سيرب | منصة الأفلام والمسلسلات العربية والعالمية",
   description:
     "Sirb (سيرب) - منصة سيرب لمتابعة أحدث وأفضل الأفلام والمسلسلات العربية والعالمية. تقييمات، ترشيحات، بحث متقدم، قوائم مفضلة، دعم الوضع الليلي، وأكثر. اكتشف كل جديد في عالم السينما والتلفزيون مع Sirb.",
   keywords:
     "سيرب, Sirb, منصة سيرب, sirb movies, sirb tv, sirb افلام, sirb مسلسلات, أفلام, مسلسلات, مشاهدة, تقييم, ترشيحات, بحث, مفضلة, سينما, تلفزيون, منصة, عربي, trending, movies, tv shows, reviews, recommendations, genres, action, drama, comedy, netflix, شاهد, اكشن, دراما, كوميدي, جديد, trending movies, trending tv shows, سيرب افلام, سيرب مسلسلات, سيرب TV, سيرب MOVIES, سيرب سينما, سيرب منصة, سيرب اونلاين, سيرب مشاهدة, سيرب تقييم, سيرب ترشيحات, سيرب بحث, سيرب مفضلة, سيرب trending, سيرب reviews, سيرب recommendations, سيرب genres, سيرب action, سيرب drama, سيرب comedy, سيرب netflix, سيرب شاهد, سيرب اكشن, سيرب دراما, سيرب كوميدي, سيرب جديد, سيرب trending movies, سيرب trending tv shows",
   openGraph: {
-    title:
-      "Sirb | سيرب - أفضل منصة أفلام ومسلسلات عربية وعالمية | Sirb Movies & TV Shows | منصة سيرب للأفلام والمسلسلات",
+    title: "سيرب | منصة الأفلام والمسلسلات العربية والعالمية",
     description:
       "Sirb (سيرب) - منصة سيرب لمتابعة أحدث وأفضل الأفلام والمسلسلات العربية والعالمية. تقييمات، ترشيحات، بحث متقدم، قوائم مفضلة، دعم الوضع الليلي، وأكثر. اكتشف كل جديد في عالم السينما والتلفزيون مع Sirb.",
     url: "https://sirb-two.vercel.app/",
