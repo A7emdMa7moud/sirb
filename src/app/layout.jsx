@@ -66,7 +66,6 @@ export default function RootLayout({ children }) {
           content="Sirb | سيرب - منصة الأفلام والمسلسلات"
         />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://sirb-two.vercel.app/" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body className={dmSans.className}>
