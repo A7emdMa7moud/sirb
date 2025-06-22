@@ -189,7 +189,7 @@ const SearchSection = () => {
                 <motion.button
                   type="button"
                   onClick={clearSearch}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 hover:bg-light-100/10 rounded-full transition-colors"
+                  className="absolute right-4 top-[25%] p-1 hover:bg-light-100/10 rounded-full transition-colors"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0 }}

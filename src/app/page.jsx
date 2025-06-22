@@ -84,9 +84,9 @@ export default function Page() {
   return (
     <main className="min-h-screen relative bg-primary">
       {/* Featured Movie Section */}
-      {!isLoadingFeatured && featuredMovie && (
+      {/* {!isLoadingFeatured && featuredMovie && (
         <FeaturedMovie movie={featuredMovie} trendingMovies={trendingMovies} />
-      )}
+      )} */}
 
       {/* Search Section */}
       <SearchSection />

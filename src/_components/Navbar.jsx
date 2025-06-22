@@ -33,7 +33,6 @@ const navLinks = [
   { name: "Movies", href: "/movies" },
   { name: "TV Shows", href: "/tv" },
   { name: "Genres", href: "/genres" },
-  { name: "My List", href: "/favorites" },
 ];
 
 function Navbar() {
@@ -65,11 +64,7 @@ function Navbar() {
     <>
       <nav
         aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMenuOpen
-            ? "bg-black/80 backdrop-blur-sm"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary/95 backdrop-blur-sm"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -159,7 +154,7 @@ function Navbar() {
             >
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-7 right-5 text-white"
+                className="absolute top-[20%] right-5 text-white"
                 aria-label="Close mobile menu"
               >
                 <svg

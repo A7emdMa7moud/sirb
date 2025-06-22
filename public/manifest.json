@@ -1,0 +1,22 @@
+{
+  "name": "Sirb | سيرب - منصة الأفلام والمسلسلات",
+  "short_name": "Sirb",
+  "description": "Sirb (سيرب) - منصة لمتابعة أحدث وأفضل الأفلام والمسلسلات العربية والعالمية.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030014",
+  "theme_color": "#030014",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
