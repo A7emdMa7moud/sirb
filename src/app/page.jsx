@@ -84,9 +84,9 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen relative bg-primary" dir="rtl">
+    <main className="min-h-screen relative bg-primary" dir="ltr">
       {/* Hero/Intro Section */}
-      <section className="w-full bg-primary pt-28 pb-12 px-4 md:px-0 flex flex-col items-center text-white text-right">
+      {/* <section className="w-full bg-primary pt-28 pb-12 px-4 md:px-0 flex flex-col items-center text-white text-right">
         <Image
           src="/images/logo.png"
           alt="شعار منصة سيرب للأفلام والمسلسلات"
@@ -160,7 +160,7 @@ export default function Page() {
           <li>دعم كامل للغة العربية وتجربة تصفح من اليمين لليسار</li>
           <li>واجهة سهلة الاستخدام ومتوافقة مع جميع الأجهزة</li>
         </ul>
-      </section>
+      </section> */}
       {/* Featured Movie Section */}
       {/* {!isLoadingFeatured && featuredMovie && (
         <FeaturedMovie movie={featuredMovie} trendingMovies={trendingMovies} />

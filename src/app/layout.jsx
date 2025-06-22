@@ -51,7 +51,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar">
+    <html lang="en" dir="ltr">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#030014" />
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className={dmSans.className}>
         <Navbar />
-        <main>{children}</main>
+        <main className="pt-4">{children}</main>
       </body>
     </html>
   );
