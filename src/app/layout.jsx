@@ -1,7 +1,6 @@
 import { DM_Sans } from "next/font/google";
 import "../styles/main.css";
 import Navbar from "@/_components/Navbar";
-import Head from "next/head";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 export const metadata = {
@@ -14,7 +13,7 @@ export const metadata = {
     title: "سيرب | منصة الأفلام والمسلسلات العربية والعالمية",
     description:
       "Sirb (سيرب) - منصة سيرب لمتابعة أحدث وأفضل الأفلام والمسلسلات العربية والعالمية. تقييمات، ترشيحات، بحث متقدم، قوائم مفضلة، دعم الوضع الليلي، وأكثر. اكتشف كل جديد في عالم السينما والتلفزيون مع Sirb.",
-    url: "https://sirb-two.vercel.app/",
+    url: "https://sirb-two.vercel.app",
     siteName: "Sirb Movies & TV Shows Platform | منصة سيرب للأفلام والمسلسلات",
     images: [
       {
@@ -52,22 +51,6 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#030014" />
-        <meta
-          name="robots"
-          content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-        />
-        <meta name="author" content="Sirb Team" />
-        <meta name="copyright" content="Sirb Movies & TV Shows Platform" />
-        <meta
-          name="application-name"
-          content="Sirb | سيرب - منصة الأفلام والمسلسلات"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
       <body className={dmSans.className}>
         <Navbar />
         <main className="pt-4">{children}</main>
