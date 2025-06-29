@@ -69,15 +69,15 @@ function Navbar() {
   const handleShare = async () => {
     const url = window.location.href;
     const currentPath = pathname;
-
+    
     // Dynamic content based on current page
     let title, text, imageUrl;
-
+    
     if (currentPath === "/") {
       title = "منصة سيرب - اكتشف أفضل الأفلام والمسلسلات";
       text =
         "اكتشف أحدث وأفضل الأفلام والمسلسلات العربية والعالمية على منصة سيرب";
-      imageUrl = "https://sirb-two.vercel.app/images/hero-bg.png";
+      imageUrl = "https://ogcdn.net/a06a2c2c-918b-4636-9ac3-c3aa4997d51f/v15/%D8%B3%D9%8A%D8%B1%D8%A8%20%7C%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA/rgba(206%2C%20206%2C%20251%2C%201)/%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D9%88%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%20%D8%B9%D9%84%D9%8A%20%D8%B3%D9%8A%D8%B1%D8%A8/rgba(3%2C%200%2C%2020%2C%201)/rgba(3%2C%200%2C%2020%2C%201)/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F7b71d9f4-8f84-47df-a23b-3475c3574d4e.png%3Ftoken%3D-vHPyEKY8KSgaqf2lnQTuD5t4lKclju1XNnUlf3xuKk%26height%3D48%26width%3D48%26expires%3D33287192505/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F4d2fce18-0d92-43d7-b35d-c2f65b21150c.png%3Ftoken%3DxtsoRSVi5Y420tfWNzhy0ylp8Qct7NVbvDSodo92SHM%26height%3D564%26width%3D943%26expires%3D33287192730/rgba(15%2C%2013%2C%2035%2C%201)/rgba(83%2C%2070%2C%20206%2C%201)/og.png";
     } else if (currentPath === "/movies") {
       title = "أفلام | منصة سيرب - تصفح أحدث وأفضل الأفلام";
       text =
@@ -96,7 +96,7 @@ function Navbar() {
       title = "منصة سيرب - اكتشف أفضل الأفلام والمسلسلات";
       text =
         "اكتشف أحدث وأفضل الأفلام والمسلسلات العربية والعالمية على منصة سيرب";
-      imageUrl = "https://sirb-two.vercel.app/images/hero-bg.png";
+      imageUrl = "https://ogcdn.net/a06a2c2c-918b-4636-9ac3-c3aa4997d51f/v15/%D8%B3%D9%8A%D8%B1%D8%A8%20%7C%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA/rgba(206%2C%20206%2C%20251%2C%201)/%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D9%88%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA%20%D9%85%D8%AC%D8%A7%D9%86%D8%A7%20%D8%B9%D9%84%D9%8A%20%D8%B3%D9%8A%D8%B1%D8%A8/rgba(3%2C%200%2C%2020%2C%201)/rgba(3%2C%200%2C%2020%2C%201)/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F7b71d9f4-8f84-47df-a23b-3475c3574d4e.png%3Ftoken%3D-vHPyEKY8KSgaqf2lnQTuD5t4lKclju1XNnUlf3xuKk%26height%3D48%26width%3D48%26expires%3D33287192505/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F4d2fce18-0d92-43d7-b35d-c2f65b21150c.png%3Ftoken%3DxtsoRSVi5Y420tfWNzhy0ylp8Qct7NVbvDSodo92SHM%26height%3D564%26width%3D943%26expires%3D33287192730/rgba(15%2C%2013%2C%2035%2C%201)/rgba(83%2C%2070%2C%20206%2C%201)/og.png";
     }
 
     try {
