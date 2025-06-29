@@ -41,9 +41,7 @@ function TVSection({ sectionTitle, requestKey }) {
       }
     } catch (error) {
       console.error(`Error fetching ${sectionTitle} TV shows:`, error);
-      setErrorMessage(
-        error.message || `Failed to fetch ${sectionTitle} TV shows`
-      );
+      setErrorMessage(error.message || `فشل في جلب مسلسلات ${sectionTitle}`);
     } finally {
       setIsLoading(false);
     }
@@ -95,56 +93,14 @@ function TVSection({ sectionTitle, requestKey }) {
         className={`trending tv-section my-10 mb-20 transition-opacity duration-500 ${
           !isLoading ? "opacity-100" : "opacity-0"
         }`}
+        dir="rtl"
+        lang="ar"
       >
-        <h2 className="mb-10 capitalize px-4 sm:px-6 lg:px-8">
-          {sectionTitle}
-        </h2>
+        <h2 className="mb-10 px-4 sm:px-6 lg:px-8">{sectionTitle}</h2>
         <div className="relative">
-          {showScrollButtons && (
-            <>
-              <button
-                onClick={() => handleScroll("left")}
-                className="absolute left-0 top-0 h-full z-30 flex items-center justify-center w-20 bg-gradient-to-r from-primary to-transparent text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-10 h-10"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
-                  />
-                </svg>
-              </button>
-              <button
-                onClick={() => handleScroll("right")}
-                className="absolute right-0 top-0 h-full z-30 flex items-center justify-center w-20 bg-gradient-to-l from-primary to-transparent text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-10 h-10"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </button>
-            </>
-          )}
           <motion.ul
             ref={scrollRef}
-            className={`flex flex-row overflow-x-auto scroll-smooth gap-5 w-full px-4 sm:px-6 lg:px-8`}
+            className={`h-max flex flex-row overflow-x-auto scroll-smooth gap-5 w-full px-4 sm:px-6 lg:px-8`}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             variants={{
               hidden: { opacity: 0 },
@@ -171,6 +127,56 @@ function TVSection({ sectionTitle, requestKey }) {
             ))}
           </motion.ul>
         </div>
+
+        {/* Scroll Navigation Buttons - Bottom Center */}
+        {showScrollButtons && (
+          <div className="flex justify-center items-center gap-4 mt-4">
+            <button
+              onClick={() => handleScroll("right")}
+              className="flex items-center gap-2 px-4 py-2 bg-light-100/10 border border-light-100/20 text-light-100 rounded-lg hover:bg-light-100/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              aria-label="التمرير لليمين"
+            >
+              {/* <span>تمرير يمين</span> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={() => handleScroll("left")}
+              className="flex items-center gap-2 px-4 py-2 bg-light-100/10 border border-light-100/20 text-light-100 rounded-lg hover:bg-light-100/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              aria-label="التمرير لليسار"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+              {/* <span>تمرير يسار</span> */}
+            </button>
+          </div>
+        )}
       </section>
     </LoadingAndErrorStatus>
   );

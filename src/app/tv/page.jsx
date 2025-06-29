@@ -1,70 +1,93 @@
-"use client";
-
 import TVSection from "@/_components/tv/TVSection";
-import Head from "next/head";
+
+export const metadata = {
+  title: "مسلسلات | سيرب - تصفح أحدث وأفضل المسلسلات",
+  description:
+    "اكتشف أحدث وأفضل المسلسلات على منصة سيرب. تصفح التصنيفات، شاهد التقييمات، واستمتع بمكتبة ضخمة من المسلسلات العربية والعالمية.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "مسلسلات | سيرب - تصفح أحدث وأفضل المسلسلات",
+    description:
+      "اكتشف أحدث وأفضل المسلسلات على منصة سيرب. تصفح التصنيفات، شاهد التقييمات، واستمتع بمكتبة ضخمة من المسلسلات العربية والعالمية.",
+    url: "https://sirb-two.vercel.app/tv",
+    type: "website",
+    locale: "ar_EG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "مسلسلات | سيرب - تصفح أحدث وأفضل المسلسلات",
+    description:
+      "اكتشف أحدث وأفضل المسلسلات على منصة سيرب. تصفح التصنيفات، شاهد التقييمات، واستمتع بمكتبة ضخمة من المسلسلات العربية والعالمية.",
+  },
+  alternates: {
+    canonical: "https://sirb-two.vercel.app/tv",
+  },
+};
 
 export default function TVPage() {
   return (
-    <>
-      <Head>
-        <title>مسلسلات | سيرب - تصفح أحدث وأفضل المسلسلات</title>
-        <meta
-          name="description"
-          content="اكتشف أحدث وأفضل المسلسلات على منصة سيرب. تصفح التصنيفات، شاهد التقييمات، واستمتع بمكتبة ضخمة من المسلسلات العربية والعالمية."
+    <main
+      className="container mx-auto min-h-screen pt-20 relative bg-primary"
+      dir="rtl"
+      lang="ar"
+    >
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-8">
+          مسلسلات - منصة سيرب
+        </h1>
+        <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+          اكتشف أحدث وأفضل المسلسلات العربية والعالمية مع تقييمات وترشيحات مخصصة
+        </p>
+      </div>
+      <section>
+        <TVSection
+          sectionTitle="المسلسلات الرائجة"
+          requestKey="fetchTrending"
         />
-        <link rel="canonical" href="https://sirb-two.vercel.app/tv" />
-      </Head>
-      <main className="min-h-screen pt-20 relative bg-primary">
-        <section>
-          <TVSection
-            sectionTitle="Trending TV Shows"
-            requestKey="fetchTrending"
-          />
-          <TVSection
-            key={"fetchTopRated"}
-            sectionTitle="Top Rated TV Shows"
-            requestKey="fetchTopRated"
-          />
-          <TVSection
-            sectionTitle="Airing Today"
-            requestKey="fetchAiringToday"
-          />
-          <TVSection sectionTitle="On The Air" requestKey="fetchOnTheAir" />
-          <TVSection
-            sectionTitle="Action TV Shows"
-            requestKey="fetchActionTV"
-          />
-          <TVSection
-            sectionTitle="Comedy TV Shows"
-            requestKey="fetchComedyTV"
-          />
-          <TVSection sectionTitle="Drama TV Shows" requestKey="fetchDramaTV" />
-          <TVSection
-            sectionTitle="Documentary TV Shows"
-            requestKey="fetchDocumentaryTV"
-          />
-          <TVSection
-            sectionTitle="Animation TV Shows"
-            requestKey="fetchAnimationTV"
-          />
-          <TVSection sectionTitle="Crime TV Shows" requestKey="fetchCrimeTV" />
-          <TVSection
-            sectionTitle="Family TV Shows"
-            requestKey="fetchFamilyTV"
-          />
-          <TVSection sectionTitle="Kids TV Shows" requestKey="fetchKidsTV" />
-          <TVSection
-            sectionTitle="Mystery TV Shows"
-            requestKey="fetchMysteryTV"
-          />
-          <TVSection sectionTitle="Sci-Fi TV Shows" requestKey="fetchSciFiTV" />
-          <TVSection sectionTitle="War TV Shows" requestKey="fetchWarTV" />
-          <TVSection
-            sectionTitle="Western TV Shows"
-            requestKey="fetchWesternTV"
-          />
-        </section>
-      </main>
-    </>
+        <TVSection
+          key={"fetchTopRated"}
+          sectionTitle="أعلى المسلسلات تقييماً"
+          requestKey="fetchTopRated"
+        />
+        <TVSection
+          sectionTitle="المسلسلات المعروضة اليوم"
+          requestKey="fetchAiringToday"
+        />
+        <TVSection
+          sectionTitle="المسلسلات على الهواء"
+          requestKey="fetchOnTheAir"
+        />
+        <TVSection sectionTitle="مسلسلات الأكشن" requestKey="fetchActionTV" />
+        <TVSection
+          sectionTitle="مسلسلات الكوميديا"
+          requestKey="fetchComedyTV"
+        />
+        <TVSection sectionTitle="مسلسلات الدراما" requestKey="fetchDramaTV" />
+        <TVSection
+          sectionTitle="مسلسلات وثائقية"
+          requestKey="fetchDocumentaryTV"
+        />
+        <TVSection
+          sectionTitle="مسلسلات الرسوم المتحركة"
+          requestKey="fetchAnimationTV"
+        />
+        <TVSection sectionTitle="مسلسلات الجريمة" requestKey="fetchCrimeTV" />
+        <TVSection sectionTitle="مسلسلات العائلة" requestKey="fetchFamilyTV" />
+        <TVSection sectionTitle="مسلسلات الأطفال" requestKey="fetchKidsTV" />
+        <TVSection sectionTitle="مسلسلات الغموض" requestKey="fetchMysteryTV" />
+        <TVSection
+          sectionTitle="مسلسلات الخيال العلمي"
+          requestKey="fetchSciFiTV"
+        />
+        <TVSection sectionTitle="مسلسلات الحرب" requestKey="fetchWarTV" />
+        <TVSection
+          sectionTitle="مسلسلات الويسترن"
+          requestKey="fetchWesternTV"
+        />
+      </section>
+    </main>
   );
 }

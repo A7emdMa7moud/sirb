@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
-Sitemap: https://sirb-two.vercel.app/sitemap.xml 
+
+# Disallow admin or private areas (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /movies/
+Allow: /tv/
+Allow: /genres/
+
+# Sitemap location
+Sitemap: https://sirb-two.vercel.app/sitemap.xml
+
+# Crawl delay (optional, for rate limiting)
+Crawl-delay: 1 

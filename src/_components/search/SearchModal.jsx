@@ -89,15 +89,17 @@ const SearchModal = ({ onClose }) => {
   const renderContent = () => {
     if (isLoading) {
       return (
-        <div className="text-center text-gray-400 pt-10">Searching...</div>
+        <div className="text-center text-gray-400 pt-10" dir="rtl" lang="ar">
+          جاري البحث...
+        </div>
       );
     }
 
     if (query && results.length > 0) {
       return (
         <>
-          <h2 className="text-xl font-semibold mb-4">
-            Results for &quot;{query}&quot;
+          <h2 className="text-xl font-semibold mb-4" dir="rtl" lang="ar">
+            نتائج البحث عن &quot;{query}&quot;
           </h2>
           <motion.div
             variants={containerVariants}
@@ -120,10 +122,10 @@ const SearchModal = ({ onClose }) => {
 
     if (query && results.length === 0) {
       return (
-        <div className="text-center text-gray-400 pt-10">
-          <p>No results found for &quot;{query}&quot;.</p>
+        <div className="text-center text-gray-400 pt-10" dir="rtl" lang="ar">
+          <p>لم يتم العثور على نتائج لـ &quot;{query}&quot;.</p>
           <p className="text-sm">
-            Try checking the spelling or searching for something else.
+            حاول التحقق من الإملاء أو البحث عن شيء آخر.
           </p>
         </div>
       );
@@ -135,14 +137,17 @@ const SearchModal = ({ onClose }) => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          dir="rtl"
+          lang="ar"
         >
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Recent Searches</h2>
+            <h2 className="text-xl font-semibold">البحث الأخير</h2>
             <button
               onClick={clearHistory}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
+              className="text-sm text-gray-400 hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-2 py-1"
+              aria-label="مسح كل سجل البحث"
             >
-              Clear All
+              مسح الكل
             </button>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -151,7 +156,7 @@ const SearchModal = ({ onClose }) => {
                 <div className="group inline-flex items-center bg-gray-800/80 rounded-full transition-colors duration-200 hover:bg-gray-700/70">
                   <span
                     onClick={() => handleHistoryClick(term)}
-                    className="text-light-100 text-left pl-4 pr-2 py-2 cursor-pointer truncate"
+                    className="text-light-100 text-right pr-4 pl-2 py-2 cursor-pointer truncate"
                   >
                     {term}
                   </span>
@@ -160,14 +165,15 @@ const SearchModal = ({ onClose }) => {
                       e.stopPropagation(); // Prevent search when deleting
                       removeSearchTerm(term);
                     }}
-                    className="flex-shrink-0 flex items-center justify-center w-8 h-8 mr-1 rounded-full text-gray-500 hover:text-white transition-colors duration-200 hover:bg-white/10"
-                    aria-label={`Remove ${term} from history`}
+                    className="flex-shrink-0 flex items-center justify-center w-8 h-8 ml-1 rounded-full text-gray-500 hover:text-white transition-colors duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    aria-label={`إزالة ${term} من سجل البحث`}
                   >
                     <svg
                       className="w-4 h-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -186,9 +192,9 @@ const SearchModal = ({ onClose }) => {
     }
 
     return (
-      <div className="text-center text-gray-400 pt-10">
-        <p className="text-lg">Find your next favorite movie or TV show.</p>
-        <p className="text-sm">Start typing in the search bar above.</p>
+      <div className="text-center text-gray-400 pt-10" dir="rtl" lang="ar">
+        <p className="text-lg">ابحث عن فيلم أو مسلسل تلفزيوني جديد.</p>
+        <p className="text-sm">ابدأ بالكتابة في شريط البحث أعلاه.</p>
       </div>
     );
   };
@@ -200,6 +206,9 @@ const SearchModal = ({ onClose }) => {
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex justify-center items-start pt-[10vh]"
       onClick={handleClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="نافذة البحث"
     >
       <motion.div
         initial={{ y: -50, opacity: 0 }}
@@ -208,6 +217,8 @@ const SearchModal = ({ onClose }) => {
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="bg-primary/90 border border-gray-700/50 rounded-xl shadow-2xl w-[90vw] max-w-5xl h-[80vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
+        dir="rtl"
+        lang="ar"
       >
         <div className="p-4 border-b border-gray-700/50 flex-shrink-0">
           <form onSubmit={handleSearch} className="relative">
@@ -216,8 +227,11 @@ const SearchModal = ({ onClose }) => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search for a movie or TV show..."
-              className="w-full bg-gray-800/80 text-white placeholder-gray-400 px-5 py-3 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 border border-transparent focus:border-transparent"
+              placeholder="ابحث عن فيلم أو مسلسل تلفزيوني..."
+              className="w-full bg-gray-800/80 text-white placeholder-gray-400 px-5 py-3 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 border border-transparent focus:border-transparent text-right"
+              aria-label="شريط البحث"
+              dir="rtl"
+              lang="ar"
             />
           </form>
         </div>

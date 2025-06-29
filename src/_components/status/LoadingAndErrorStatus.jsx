@@ -11,7 +11,7 @@ function LoadingAndErrorStatus({
 }) {
   if (isLoading) {
     return (
-      <section className="trending tv-section py-10 mb-20 px-4 sm:px-6 lg:px-8">
+      <section className="trending tv-section py-10 mb-20 px-4 sm:px-6 lg:px-8" dir="rtl" lang="ar">
         <div className="flex justify-center items-center">
           <Loading title={sectionTitle} key={`loading-${requestKey}`} />
         </div>
@@ -21,8 +21,8 @@ function LoadingAndErrorStatus({
 
   if (errorMessage) {
     return (
-      <section className="trending tv-section py-10 mb-20 px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-10 capitalize">{sectionTitle}</h2>
+      <section className="trending tv-section py-10 mb-20 px-4 sm:px-6 lg:px-8" dir="rtl" lang="ar">
+        <h2 className="mb-10">{sectionTitle}</h2>
         <div className="flex justify-center items-center">
           <p className="text-red-500">{errorMessage}</p>
         </div>

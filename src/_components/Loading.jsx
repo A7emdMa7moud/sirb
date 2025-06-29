@@ -5,8 +5,10 @@ import "../styles/loading.css";
 
 function Loading({ title }) {
   return (
-    <div className="flex gap-4 animate-pulse items-center">
-      <p className="text-white capitalize tracking-wider">{title} is loading</p>
+    <div className="flex gap-4 animate-pulse items-center" dir="rtl" lang="ar">
+      <p className="text-white tracking-wider">
+        جاري تحميل {title}
+      </p>
 
       <div className="loader">
         <div className="bar1"></div>

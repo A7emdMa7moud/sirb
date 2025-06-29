@@ -130,10 +130,10 @@
   }
 
   .movie-card {
-    @apply bg-dark-100 p-5 rounded-2xl;
+    @apply bg-dark-100 p-5;
 
     img {
-      @apply rounded-lg h-auto w-full;
+      @apply h-auto w-full;
     }
 
     h3 {
