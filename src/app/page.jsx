@@ -169,6 +169,8 @@ export default function Page() {
       {/* Search Section */}
       <SearchSection />
 
+      <Image width={100} height={100} alt="hero" src="/images/hero.png" />
+
       {/* Trending Movies Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
