@@ -41,6 +41,7 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [showShareFeedback, setShowShareFeedback] = useState(false);
   const pathname = usePathname();
 
   // Handle scroll effect for navbar background
@@ -64,6 +65,66 @@ function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Handle share functionality
+  const handleShare = async () => {
+    const url = window.location.href;
+    const currentPath = pathname;
+
+    // Dynamic content based on current page
+    let title, text, imageUrl;
+
+    if (currentPath === "/") {
+      title = "منصة سيرب - اكتشف أفضل الأفلام والمسلسلات";
+      text =
+        "اكتشف أحدث وأفضل الأفلام والمسلسلات العربية والعالمية على منصة سيرب";
+      imageUrl = "https://sirb-two.vercel.app/images/hero-bg.png";
+    } else if (currentPath === "/movies") {
+      title = "أفلام | منصة سيرب - تصفح أحدث وأفضل الأفلام";
+      text =
+        "اكتشف أحدث وأفضل الأفلام العربية والعالمية مع تقييمات وترشيحات مخصصة";
+      imageUrl = "https://sirb-two.vercel.app/images/hero.png";
+    } else if (currentPath === "/tv") {
+      title = "مسلسلات | منصة سيرب - تصفح أحدث وأفضل المسلسلات";
+      text =
+        "اكتشف أحدث وأفضل المسلسلات العربية والعالمية مع تقييمات وترشيحات مخصصة";
+      imageUrl = "https://sirb-two.vercel.app/images/hero1.png";
+    } else if (currentPath === "/genres") {
+      title = "التصنيفات | منصة سيرب - تصفح أفلام ومسلسلات حسب النوع";
+      text = "تصفح الأفلام والمسلسلات حسب التصنيفات المختلفة على منصة سيرب";
+      imageUrl = "https://sirb-two.vercel.app/images/logo.png";
+    } else {
+      title = "منصة سيرب - اكتشف أفضل الأفلام والمسلسلات";
+      text =
+        "اكتشف أحدث وأفضل الأفلام والمسلسلات العربية والعالمية على منصة سيرب";
+      imageUrl = "https://sirb-two.vercel.app/images/hero-bg.png";
+    }
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title,
+          text,
+          url,
+        });
+      } else {
+        // Fallback: copy URL to clipboard
+        await navigator.clipboard.writeText(url);
+        setShowShareFeedback(true);
+        setTimeout(() => setShowShareFeedback(false), 2000);
+      }
+    } catch (error) {
+      console.error("Error sharing:", error);
+      // Fallback: copy URL to clipboard
+      try {
+        await navigator.clipboard.writeText(url);
+        setShowShareFeedback(true);
+        setTimeout(() => setShowShareFeedback(false), 2000);
+      } catch (clipboardError) {
+        console.error("Error copying to clipboard:", clipboardError);
+      }
+    }
+  };
+
   return (
     <>
       <header
@@ -79,9 +140,9 @@ function Navbar() {
           aria-label="القائمة الرئيسية"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between py-4">
             {/* Site Title / Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
               <Link
                 href="/"
                 aria-label="العودة للصفحة الرئيسية"
@@ -113,6 +174,45 @@ function Navbar() {
             {/* Search and Mobile Menu Toggle */}
             <div className="flex items-center gap-2 md:gap-4">
               {/* Search Button */}
+              {/* Share Button */}
+              <div className="relative">
+                <button
+                  onClick={handleShare}
+                  className="text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary"
+                  aria-label="مشاركة الموقع"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
+                    />
+                  </svg>
+                </button>
+
+                {/* Share Feedback */}
+                <AnimatePresence>
+                  {showShareFeedback && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-green-500 text-white text-sm rounded-lg whitespace-nowrap z-50"
+                    >
+                      تم نسخ الرابط!
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary"

@@ -25,14 +25,31 @@ export const metadata = {
     description:
       "Sirb (سيرب) - منصة سيرب لمتابعة أحدث وأفضل الأفلام والمسلسلات العربية والعالمية. تقييمات، ترشيحات، بحث متقدم، قوائم مفضلة، دعم الوضع الليلي، وأكثر. اكتشف كل جديد في عالم السينما والتلفزيون مع Sirb.",
     url: "https://sirb-two.vercel.app",
-    // url: "https://7ke4q6yj7j4l25rhbjv6ssypiy.srv.us/",
     siteName: "Sirb Movies & TV Shows Platform | منصة سيرب للأفلام والمسلسلات",
     images: [
       {
         url: "/images/hero-bg.png",
-        // width: 1200,
-        // height: 630,
+        width: 1200,
+        height: 630,
         alt: "Sirb Logo | شعار سيرب",
+      },
+      {
+        url: "/images/hero-bg.png",
+        width: 800,
+        height: 600,
+        alt: "منصة سيرب للأفلام والمسلسلات",
+      },
+      {
+        url: "/images/hero-bg.png",
+        width: 800,
+        height: 600,
+        alt: "اكتشف أفضل الأفلام والمسلسلات",
+      },
+      {
+        url: "/images/logo.png",
+        width: 512,
+        height: 512,
+        alt: "شعار سيرب",
       },
     ],
     locale: "ar_EG",
@@ -44,7 +61,12 @@ export const metadata = {
     title: "سيرب | منصة الأفلام والمسلسلات",
     description:
       "Sirb (سيرب) - منصة لمتابعة أحدث الأفلام والمسلسلات العربية والعالمية. تقييمات، ترشيحات، بحث متقدم.",
-    image: "/images/hero-bg.png",
+    images: [
+      "/images/hero-bg.png",
+      "/images/hero1.png",
+      "/images/hero1.png",
+      "/images/logo.png",
+    ],
   },
   icons: {
     icon: "/favicon.ico",
