@@ -90,17 +90,17 @@ function TVSection({ sectionTitle, requestKey }) {
       requestKey={requestKey}
     >
       <section
-        className={`trending tv-section my-10 mb-20 transition-opacity duration-500 ${
+        className={`trending tv-section flex flex-col gap-4 my-10 mb-20 transition-opacity duration-500 ${
           !isLoading ? "opacity-100" : "opacity-0"
         }`}
         dir="rtl"
         lang="ar"
       >
-        <h2 className="mb-10 px-4 sm:px-6 lg:px-8">{sectionTitle}</h2>
+        <h2>{sectionTitle}</h2>
         <div className="relative">
           <motion.ul
             ref={scrollRef}
-            className={`h-max flex flex-row overflow-x-auto scroll-smooth gap-5 w-full px-4 sm:px-6 lg:px-8`}
+            className={`flex flex-row overflow-x-auto scroll-smooth gap-4 w-full px-4 sm:px-6 lg:px-0`}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             variants={{
               hidden: { opacity: 0 },
@@ -130,7 +130,7 @@ function TVSection({ sectionTitle, requestKey }) {
 
         {/* Scroll Navigation Buttons - Bottom Center */}
         {showScrollButtons && (
-          <div className="flex justify-center items-center gap-4 mt-4">
+          <div className="flex justify-center items-center gap-4">
             <button
               onClick={() => handleScroll("right")}
               className="flex items-center gap-2 px-4 py-2 bg-light-100/10 border border-light-100/20 text-light-100 rounded-lg hover:bg-light-100/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
