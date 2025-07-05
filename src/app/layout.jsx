@@ -52,6 +52,14 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-7025460416385128" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7025460416385128"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className={`${dmSans.className} ${cairo.className}`}>
         <Navbar />
         <main className="pt-0">{children}</main>
